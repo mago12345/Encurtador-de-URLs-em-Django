@@ -10,6 +10,6 @@ Então, dentro da pasta gerada, migre:
 
 ``python3 manage.py migrate``
 
-Rode o servidor:
+Rode o servidor na porta 80:
 
-``python3 manage.py runserver``
+``sudo python3 manage.py runserver 80``
