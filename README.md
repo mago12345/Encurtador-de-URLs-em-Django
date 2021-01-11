@@ -8,10 +8,6 @@ Primeiro clone:
 
 Então, dentro da pasta gerada, faça as migrações:
 
-``python3 manage.py makemigrations``
-
-Migre:
-
 ``python3 manage.py migrate``
 
 Rode o servidor:
