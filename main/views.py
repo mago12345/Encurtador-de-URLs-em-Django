@@ -5,6 +5,14 @@ from main.models import Link
 
 from random import randint
 
+def random_str():
+    alias = ''
+    count = 0
+    while count < 5:
+        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[randint(0, 61)]
+        count += 1
+    return alias
+
 '''
 Faz o redirecionamento de um link encurtado para o link de destino.
 '''
@@ -42,12 +50,7 @@ def shorten(request):
     
     # cria o apelido (alias) da url
     while True:
-        alias = ''
-        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'[randint(0, 51)]
-        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'[randint(0, 51)]
-        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'[randint(0, 51)]
-        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'[randint(0, 51)]
-        alias += 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'[randint(0, 51)]
+        alias = random_str()
         
         if Link.objects.filter(alias=alias).count() != 0: # se este apelido de url já estiver em uso, tenta outro
             continue
